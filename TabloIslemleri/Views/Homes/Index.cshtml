@@ -1,0 +1,39 @@
+﻿@model IEnumerable<TabloIslemleri.Models.NotKaydı>
+@{
+    ViewBag.Title = "Index";
+}
+<h2> Not Kaydı   </h2>
+
+<p>
+    @Html.ActionLink("Not Giriş Sayfası", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ders)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.notlar)
+        </th>
+     
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ders)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.notlar)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { Id = item.ID })
+                @Html.ActionLink("Sil", "Delete", new { Id = item.ID }, new { onclick = "return confirm('Kaydı Silmek İstediğinize Emin Misiniz?');" })         
+            </td>
+        </tr>
+    }
+
+</table>
+

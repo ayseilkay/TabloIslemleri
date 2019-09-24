@@ -1,0 +1,38 @@
+﻿@model TabloIslemleri.Models.NotKaydı
+
+<h3>Silmek İstediğinize Emin Misiniz?</h3>
+<div>
+    <h4>Not Kaydı</h4>
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ders)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ders)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.notlar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.notlar)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-colour">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Listeye Geri Dön", "Index")
+            @ViewBag.Message
+
+        </div>
+    }
+</div>
+
